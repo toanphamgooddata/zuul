@@ -105,6 +105,8 @@ class Server(zuul.cmd.ZuulApp):
         for line in open(path):
             v = line.strip()
             if v:
+                if v.endswith('.xml'):
+                    v = v[:-4]
                 jobs.add(v)
         for job in sorted(layout.jobs):
             if job not in jobs:
